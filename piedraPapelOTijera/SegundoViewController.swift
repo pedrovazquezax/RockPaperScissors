@@ -14,9 +14,25 @@ class SegundoViewController: UIViewController {
     @IBOutlet weak var maquinaLbl: UILabel!
     @IBOutlet weak var personaLbl: UILabel!
     
+    var nombre: String = ""
+    
     var counterMaquina = 0
     var counterPersona = 0
     let imagenes = [" ","👊🏻","🖐🏻","✌🏻","🦎","🖖🏻"]
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        maquinaLbl.text = "Score Maquina: \(counterMaquina)"
+        personaLbl.text = "Score \(nombre): \(counterPersona)"
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     @IBAction func jugada(_ sender: UIButton) {
         let movJugador = sender.tag
@@ -95,30 +111,9 @@ class SegundoViewController: UIViewController {
         alertcontroller.addAction(action)
         self.present(alertcontroller, animated: true, completion: nil)
         maquinaLbl.text = "Score Maquina: \(counterMaquina)"
-        personaLbl.text = "Score Persona \(counterPersona)"
+        personaLbl.text = "Score \(nombre): \(counterPersona)"
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
